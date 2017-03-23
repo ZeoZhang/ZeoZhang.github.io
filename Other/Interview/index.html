@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="CoderFaith">
 <meta property="og:description" content="本文总结了平常面试可能会遇到的面试题，会不断完善，请读者注意发布时间，文章不保证失效性，在版本更新后可能会有所差异">
 <meta property="og:image" content="https://zeozhang.github.io/img/activityshengmingzhouqi.gif">
-<meta property="og:updated_time" content="2017-03-23T05:35:22.000Z">
+<meta property="og:updated_time" content="2017-03-23T09:24:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题">
 <meta name="twitter:description" content="本文总结了平常面试可能会遇到的面试题，会不断完善，请读者注意发布时间，文章不保证失效性，在版本更新后可能会有所差异">
@@ -198,7 +198,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -208,7 +208,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -285,7 +285,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-21T12:03:50+08:00">
                 2017-03-21
@@ -306,7 +306,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -521,15 +521,15 @@
 <p><a href="http://www.cnblogs.com/lwbqqyumidi/p/4181185.html" target="_blank" rel="external">http://www.cnblogs.com/lwbqqyumidi/p/4181185.html</a></p>
 </blockquote>
 <hr>
-<h1 id="Service保活"><a href="#Service保活" class="headerlink" title="Service保活"></a><a name="7" id="7">Service保活</a></h1><h2 id="1-提供进程优先级，降低进程被杀死的概率"><a href="#1-提供进程优先级，降低进程被杀死的概率" class="headerlink" title="1. 提供进程优先级，降低进程被杀死的概率"></a>1. 提供进程优先级，降低进程被杀死的概率</h2><p>方法一：监控手机锁屏解锁事件，在屏幕锁屏时启动1个像素的 Activity，在用户解锁时将 Activity 销毁掉。</p>
+<h2 id="Service保活"><a href="#Service保活" class="headerlink" title="Service保活"></a><a name="7" id="7">Service保活</a></h2><h3 id="1-提供进程优先级，降低进程被杀死的概率"><a href="#1-提供进程优先级，降低进程被杀死的概率" class="headerlink" title="1. 提供进程优先级，降低进程被杀死的概率"></a>1. 提供进程优先级，降低进程被杀死的概率</h3><p>方法一：监控手机锁屏解锁事件，在屏幕锁屏时启动1个像素的 Activity，在用户解锁时将 Activity 销毁掉。</p>
 <p>方法二：启动前台service。</p>
 <p>方法三：提升service优先级：</p>
 <p>在AndroidManifest.xml文件中对于intent-filter可以通过android:priority = “1000”这个属性设置最高优先级，<br>1000是最高值，如果数字越小则优先级越低，同时适用于广播。</p>
-<h2 id="2-在进程被杀死后，进行拉活"><a href="#2-在进程被杀死后，进行拉活" class="headerlink" title="2. 在进程被杀死后，进行拉活"></a>2. 在进程被杀死后，进行拉活</h2><p>方法一：注册高频率广播接收器，唤起进程。如网络变化，解锁屏幕，开机等</p>
+<h3 id="2-在进程被杀死后，进行拉活"><a href="#2-在进程被杀死后，进行拉活" class="headerlink" title="2. 在进程被杀死后，进行拉活"></a>2. 在进程被杀死后，进行拉活</h3><p>方法一：注册高频率广播接收器，唤起进程。如网络变化，解锁屏幕，开机等</p>
 <p>方法二：双进程相互唤起。</p>
 <p>方法三：依靠系统唤起。</p>
 <p>方法四：onDestroy方法里重启service：service +broadcast 方式，就是当service走ondestory的时候，发送一个自定义的广播，当收到广播的时候，重新启动service；</p>
-<h2 id="3-依靠第三方"><a href="#3-依靠第三方" class="headerlink" title="3. 依靠第三方"></a>3. 依靠第三方</h2><p>根据终端不同，在小米手机（包括 MIUI）接入小米推送、华为手机接入华为推送；其他手机可以考虑接入腾讯信鸽或极光推送与小米推送做 A/B Test。</p>
+<h3 id="3-依靠第三方"><a href="#3-依靠第三方" class="headerlink" title="3. 依靠第三方"></a>3. 依靠第三方</h3><p>根据终端不同，在小米手机（包括 MIUI）接入小米推送、华为手机接入华为推送；其他手机可以考虑接入腾讯信鸽或极光推送与小米推送做 A/B Test。</p>
 <blockquote>
 <p>另外腾讯bugly有一篇特别详细的：<a href="http://mp.weixin.qq.com/s?__biz=MzA3NTYzODYzMg==&amp;mid=2653577617&amp;idx=1&amp;sn=623256a2ff94641036a6c9eea17baab8&amp;scene=0#wechat_redirect" target="_blank" rel="external">进程保活大全</a></p>
 </blockquote>
@@ -744,10 +744,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -768,7 +768,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives">
                 <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
@@ -779,7 +779,7 @@
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">categories</span>
+                <span class="site-state-item-name">Kategorien</span>
               
             </div>
           
@@ -790,7 +790,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">Tags</span>
               
             </div>
           
@@ -824,7 +824,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Activity的生命周期-Fragment的生命周期"><span class="nav-number">1.</span> <span class="nav-text">Activity的生命周期(Fragment的生命周期)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Activity的-“生命周期”"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Activity的 “生命周期”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#被调用的情况"><span class="nav-number">1.2.</span> <span class="nav-text">被调用的情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保存Activity状态"><span class="nav-number">1.3.</span> <span class="nav-text">保存Activity状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更多请参考"><span class="nav-number">1.4.</span> <span class="nav-text">更多请参考</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据储存方式"><span class="nav-number">2.</span> <span class="nav-text">数据储存方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Handler机制和分析"><span class="nav-number">3.</span> <span class="nav-text">Handler机制和分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Asynctask优缺点-分析"><span class="nav-number">4.</span> <span class="nav-text">Asynctask优缺点(分析)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于Asynctask"><span class="nav-number">4.1.</span> <span class="nav-text">关于Asynctask</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AsyncTask的使用"><span class="nav-number">4.2.</span> <span class="nav-text">AsyncTask的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-生命周期"><span class="nav-number">4.2.1.</span> <span class="nav-text">1.生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-内存泄漏"><span class="nav-number">4.2.2.</span> <span class="nav-text">2.内存泄漏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-结果丢失"><span class="nav-number">4.2.3.</span> <span class="nav-text">3.结果丢失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-并行还是串行"><span class="nav-number">4.2.4.</span> <span class="nav-text">4.并行还是串行</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对比以上两种优缺点-Handler和AsyncTask"><span class="nav-number">5.</span> <span class="nav-text">对比以上两种优缺点(Handler和AsyncTask)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Service的概念"><span class="nav-number">6.</span> <span class="nav-text">Service的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#service的分类"><span class="nav-number">6.1.</span> <span class="nav-text">service的分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Service保活"><span class="nav-number">7.</span> <span class="nav-text">Service保活</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-提供进程优先级，降低进程被杀死的概率"><span class="nav-number">7.1.</span> <span class="nav-text">1. 提供进程优先级，降低进程被杀死的概率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-在进程被杀死后，进行拉活"><span class="nav-number">7.2.</span> <span class="nav-text">2. 在进程被杀死后，进行拉活</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-依靠第三方"><span class="nav-number">7.3.</span> <span class="nav-text">3. 依靠第三方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义View"><span class="nav-number">7.4.</span> <span class="nav-text">自定义View</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程"><span class="nav-number">7.5.</span> <span class="nav-text">进程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程的详解"><span class="nav-number">7.5.1.</span> <span class="nav-text">进程的详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程终止的规则"><span class="nav-number">7.5.2.</span> <span class="nav-text">进程终止的规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Context相关"><span class="nav-number">7.6.</span> <span class="nav-text">Context相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存泄露和防止内存泄漏"><span class="nav-number">7.7.</span> <span class="nav-text">内存泄露和防止内存泄漏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引起内存泄漏的情况"><span class="nav-number">7.7.1.</span> <span class="nav-text">引起内存泄漏的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决内存泄漏的简单方法"><span class="nav-number">7.7.2.</span> <span class="nav-text">解决内存泄漏的简单方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据解析"><span class="nav-number">7.8.</span> <span class="nav-text">数据解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON"><span class="nav-number">7.8.1.</span> <span class="nav-text">JSON</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xml解析"><span class="nav-number">7.8.2.</span> <span class="nav-text">xml解析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件分发机制"><span class="nav-number">7.9.</span> <span class="nav-text">事件分发机制</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Activity的生命周期-Fragment的生命周期"><span class="nav-number">1.</span> <span class="nav-text">Activity的生命周期(Fragment的生命周期)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Activity的-“生命周期”"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Activity的 “生命周期”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#被调用的情况"><span class="nav-number">1.2.</span> <span class="nav-text">被调用的情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保存Activity状态"><span class="nav-number">1.3.</span> <span class="nav-text">保存Activity状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更多请参考"><span class="nav-number">1.4.</span> <span class="nav-text">更多请参考</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据储存方式"><span class="nav-number">2.</span> <span class="nav-text">数据储存方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Handler机制和分析"><span class="nav-number">3.</span> <span class="nav-text">Handler机制和分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Asynctask优缺点-分析"><span class="nav-number">4.</span> <span class="nav-text">Asynctask优缺点(分析)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于Asynctask"><span class="nav-number">4.1.</span> <span class="nav-text">关于Asynctask</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AsyncTask的使用"><span class="nav-number">4.2.</span> <span class="nav-text">AsyncTask的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-生命周期"><span class="nav-number">4.2.1.</span> <span class="nav-text">1.生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-内存泄漏"><span class="nav-number">4.2.2.</span> <span class="nav-text">2.内存泄漏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-结果丢失"><span class="nav-number">4.2.3.</span> <span class="nav-text">3.结果丢失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-并行还是串行"><span class="nav-number">4.2.4.</span> <span class="nav-text">4.并行还是串行</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对比以上两种优缺点-Handler和AsyncTask"><span class="nav-number">5.</span> <span class="nav-text">对比以上两种优缺点(Handler和AsyncTask)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Service的概念"><span class="nav-number">6.</span> <span class="nav-text">Service的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#service的分类"><span class="nav-number">6.1.</span> <span class="nav-text">service的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Service保活"><span class="nav-number">6.2.</span> <span class="nav-text">Service保活</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-提供进程优先级，降低进程被杀死的概率"><span class="nav-number">6.2.1.</span> <span class="nav-text">1. 提供进程优先级，降低进程被杀死的概率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-在进程被杀死后，进行拉活"><span class="nav-number">6.2.2.</span> <span class="nav-text">2. 在进程被杀死后，进行拉活</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-依靠第三方"><span class="nav-number">6.2.3.</span> <span class="nav-text">3. 依靠第三方</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义View"><span class="nav-number">6.3.</span> <span class="nav-text">自定义View</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程"><span class="nav-number">6.4.</span> <span class="nav-text">进程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程的详解"><span class="nav-number">6.4.1.</span> <span class="nav-text">进程的详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程终止的规则"><span class="nav-number">6.4.2.</span> <span class="nav-text">进程终止的规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Context相关"><span class="nav-number">6.5.</span> <span class="nav-text">Context相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存泄露和防止内存泄漏"><span class="nav-number">6.6.</span> <span class="nav-text">内存泄露和防止内存泄漏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引起内存泄漏的情况"><span class="nav-number">6.6.1.</span> <span class="nav-text">引起内存泄漏的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决内存泄漏的简单方法"><span class="nav-number">6.6.2.</span> <span class="nav-text">解决内存泄漏的简单方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据解析"><span class="nav-number">6.7.</span> <span class="nav-text">数据解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON"><span class="nav-number">6.7.1.</span> <span class="nav-text">JSON</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xml解析"><span class="nav-number">6.7.2.</span> <span class="nav-text">xml解析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件分发机制"><span class="nav-number">6.8.</span> <span class="nav-text">事件分发机制</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -856,7 +856,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
