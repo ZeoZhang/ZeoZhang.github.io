@@ -374,6 +374,9 @@ audio,canvas,img,video {
 .head-nav__link,.head-title>a {
 	color:#fff
 }
+.head-context{
+	color:#fff
+}
 .highlight .marked {
 	background-color:#ffecec
 }
@@ -426,6 +429,9 @@ audio,canvas,img,video {
 	margin-right:10px
 }
 .head-nav__link:hover {
+	color:#f0f0f0
+}
+.head-context:hover {
 	color:#f0f0f0
 }
 .main {
